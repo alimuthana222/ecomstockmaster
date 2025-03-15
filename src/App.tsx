@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Index from "./pages/Index";
 import Products from "./pages/Products";
+import Inventory from "./pages/Inventory";
+import Reports from "./pages/Reports";
+import Settings from "./pages/Settings";
 import LowStock from "./pages/LowStock";
 import NotFound from "./pages/NotFound";
 
@@ -21,6 +24,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/inventory" element={<Inventory />} />
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="/low-stock" element={<LowStock />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
