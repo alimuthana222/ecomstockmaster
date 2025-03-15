@@ -1,5 +1,5 @@
 
-import { Product, InventoryStats, CategorySummary } from '../types/inventory';
+import { Product, InventoryStats, CategorySummary, Supplier, InventoryTransaction } from '../types/inventory';
 
 // Sample product data
 export const mockProducts: Product[] = [
@@ -117,6 +117,64 @@ export const mockProducts: Product[] = [
   },
 ];
 
+// Sample supplier data
+export const mockSuppliers: Supplier[] = [
+  {
+    id: '1',
+    name: 'Tech Distributors Inc.',
+    contactPerson: 'John Smith',
+    email: 'john@techdist.com',
+    phone: '555-123-4567',
+    address: '123 Tech Avenue, San Francisco, CA 94107',
+    products: ['1', '4', '8'] // Electronics products
+  },
+  {
+    id: '2',
+    name: 'Apparel Wholesale Co.',
+    contactPerson: 'Lisa Johnson',
+    email: 'lisa@apparelwholesale.com',
+    phone: '555-987-6543',
+    address: '456 Fashion Blvd, New York, NY 10001',
+    products: ['2'] // Apparel products
+  },
+  {
+    id: '3',
+    name: 'Home Goods Supply',
+    contactPerson: 'Michael Brown',
+    email: 'michael@homegoods.com',
+    phone: '555-567-8901',
+    address: '789 Home Street, Chicago, IL 60607',
+    products: ['3', '7'] // Home goods products
+  }
+];
+
+// Sample transaction history
+export const mockTransactions: InventoryTransaction[] = [
+  {
+    id: '1',
+    productId: '1',
+    type: 'purchase',
+    quantity: 20,
+    date: new Date(2023, 9, 15).toISOString(),
+    notes: 'Restocked from Tech Distributors Inc.'
+  },
+  {
+    id: '2',
+    productId: '2',
+    type: 'sale',
+    quantity: -5,
+    date: new Date(2023, 9, 18).toISOString()
+  },
+  {
+    id: '3',
+    productId: '8',
+    type: 'purchase',
+    quantity: 10,
+    date: new Date(2023, 9, 20).toISOString(),
+    notes: 'Emergency restock due to low inventory'
+  }
+];
+
 // Calculate inventory stats
 export const getInventoryStats = (): InventoryStats => {
   const totalProducts = mockProducts.length;
@@ -152,4 +210,14 @@ export const getInventoryStats = (): InventoryStats => {
     totalValue,
     categories
   };
+};
+
+// Get recent transactions for a product
+export const getProductTransactions = (productId: string): InventoryTransaction[] => {
+  return mockTransactions.filter(t => t.productId === productId);
+};
+
+// Get supplier for a product
+export const getProductSupplier = (productId: string): Supplier | undefined => {
+  return mockSuppliers.find(s => s.products.includes(productId));
 };

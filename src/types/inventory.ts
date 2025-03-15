@@ -26,3 +26,24 @@ export interface InventoryStats {
   totalValue: number;
   categories: CategorySummary[];
 }
+
+// Adding supplier information to enhance the inventory system
+export interface Supplier {
+  id: string;
+  name: string;
+  contactPerson: string;
+  email: string;
+  phone: string;
+  address: string;
+  products: string[]; // Array of product IDs supplied by this supplier
+}
+
+// Transaction history for tracking inventory changes
+export interface InventoryTransaction {
+  id: string;
+  productId: string;
+  type: 'purchase' | 'sale' | 'adjustment';
+  quantity: number;
+  date: string;
+  notes?: string;
+}
