@@ -1,5 +1,5 @@
 
-import { Product, InventoryStats } from '../types/inventory';
+import { Product, InventoryStats, CategorySummary } from '../types/inventory';
 
 // Sample product data
 export const mockProducts: Product[] = [
@@ -12,7 +12,7 @@ export const mockProducts: Product[] = [
     cost: 65.00,
     stockQuantity: 34,
     reorderLevel: 10,
-    image: '/placeholder.svg',
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
     description: 'High-quality wireless headphones with noise cancellation.',
     createdAt: new Date(2023, 2, 15).toISOString(),
     updatedAt: new Date(2023, 6, 20).toISOString(),
@@ -26,7 +26,7 @@ export const mockProducts: Product[] = [
     cost: 8.50,
     stockQuantity: 78,
     reorderLevel: 20,
-    image: '/placeholder.svg',
+    image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
     description: 'Soft, comfortable 100% organic cotton t-shirt.',
     createdAt: new Date(2023, 1, 10).toISOString(),
     updatedAt: new Date(2023, 5, 5).toISOString(),
@@ -40,7 +40,7 @@ export const mockProducts: Product[] = [
     cost: 7.25,
     stockQuantity: 52,
     reorderLevel: 15,
-    image: '/placeholder.svg',
+    image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
     description: 'Durable, insulated stainless steel water bottle.',
     createdAt: new Date(2023, 3, 20).toISOString(),
     updatedAt: new Date(2023, 7, 12).toISOString(),
@@ -54,7 +54,7 @@ export const mockProducts: Product[] = [
     cost: 4.50,
     stockQuantity: 8,
     reorderLevel: 10,
-    image: '/placeholder.svg',
+    image: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
     description: 'Adjustable smartphone stand with non-slip base.',
     createdAt: new Date(2023, 4, 8).toISOString(),
     updatedAt: new Date(2023, 8, 3).toISOString(),
@@ -68,7 +68,7 @@ export const mockProducts: Product[] = [
     cost: 18.75,
     stockQuantity: 42,
     reorderLevel: 12,
-    image: '/placeholder.svg',
+    image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
     description: 'Genuine leather wallet with multiple card slots.',
     createdAt: new Date(2023, 2, 5).toISOString(),
     updatedAt: new Date(2023, 6, 30).toISOString(),
@@ -82,7 +82,7 @@ export const mockProducts: Product[] = [
     cost: 12.00,
     stockQuantity: 22,
     reorderLevel: 8,
-    image: '/placeholder.svg',
+    image: 'https://images.unsplash.com/photo-1599447292180-45fd84092f64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
     description: 'Non-slip, eco-friendly yoga mat.',
     createdAt: new Date(2023, 5, 12).toISOString(),
     updatedAt: new Date(2023, 9, 18).toISOString(),
@@ -96,7 +96,7 @@ export const mockProducts: Product[] = [
     cost: 28.50,
     stockQuantity: 5,
     reorderLevel: 7,
-    image: '/placeholder.svg',
+    image: 'https://images.unsplash.com/photo-1625525832338-c6055e6b5d45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
     description: 'Electric coffee grinder with adjustable settings.',
     createdAt: new Date(2023, 1, 22).toISOString(),
     updatedAt: new Date(2023, 7, 7).toISOString(),
@@ -110,7 +110,7 @@ export const mockProducts: Product[] = [
     cost: 14.25,
     stockQuantity: 3,
     reorderLevel: 10,
-    image: '/placeholder.svg',
+    image: 'https://images.unsplash.com/photo-1608748717452-d7ff3243286b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
     description: 'Fast wireless charging pad compatible with multiple devices.',
     createdAt: new Date(2023, 4, 17).toISOString(),
     updatedAt: new Date(2023, 8, 9).toISOString(),

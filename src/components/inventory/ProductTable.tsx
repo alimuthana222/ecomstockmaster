@@ -125,6 +125,9 @@ export function ProductTable({
                             src={product.image} 
                             alt={product.name} 
                             className="h-full w-full object-cover" 
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = '/placeholder.svg';
+                            }}
                           />
                         </div>
                         {product.name}
@@ -138,9 +141,9 @@ export function ProductTable({
                       {product.stockQuantity === 0 ? (
                         <Badge variant="destructive">Out of Stock</Badge>
                       ) : product.stockQuantity < product.reorderLevel ? (
-                        <Badge variant="outline" className="text-warning border-warning">Low Stock</Badge>
+                        <Badge variant="outline" className="text-amber-500 border-amber-500">Low Stock</Badge>
                       ) : (
-                        <Badge variant="outline" className="text-success border-success">In Stock</Badge>
+                        <Badge variant="outline" className="text-emerald-600 border-emerald-600">In Stock</Badge>
                       )}
                     </TableCell>
                     <TableCell>
