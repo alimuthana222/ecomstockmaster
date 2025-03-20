@@ -88,7 +88,11 @@ const Reports = () => {
                           <ChartTooltipContent
                             active={active}
                             payload={payload}
-                            formatter={(value) => [`$${value.toFixed(2)}`, 'Value']}
+                            formatter={(value) => {
+                              // Safely handle different value types
+                              const numValue = typeof value === 'number' ? value : 0;
+                              return [`$${numValue.toFixed(2)}`, 'Value'];
+                            }}
                           />
                         );
                       }

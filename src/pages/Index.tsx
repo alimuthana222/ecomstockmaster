@@ -20,7 +20,7 @@ const Index = () => {
     totalValue: 0,
     outOfStock: 0,
     lowStockCount: 0,
-    categories: [] as {name: string, value: number}[]
+    categories: [] as {name: string, count: number, value: number}[]
   });
   const { toast } = useToast();
 
@@ -47,15 +47,20 @@ const Index = () => {
         // Get unique categories and count products in each
         const categoryMap = productsData.reduce((acc, product) => {
           if (!acc[product.category]) {
-            acc[product.category] = 0;
+            acc[product.category] = {
+              count: 0,
+              value: 0
+            };
           }
-          acc[product.category]++;
+          acc[product.category].count++;
+          acc[product.category].value += (product.price * product.stockQuantity);
           return acc;
-        }, {} as Record<string, number>);
+        }, {} as Record<string, {count: number, value: number}>);
         
-        const categories = Object.entries(categoryMap).map(([name, value]) => ({
+        const categories = Object.entries(categoryMap).map(([name, data]) => ({
           name,
-          value
+          count: data.count,
+          value: data.value
         }));
         
         setStats({
