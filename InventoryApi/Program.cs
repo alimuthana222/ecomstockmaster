@@ -2,7 +2,7 @@
 using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
 
-// Add correct namespace references
+// Add services namespace explicitly
 using InventoryApi.Models;
 using InventoryApi.Services;
 
