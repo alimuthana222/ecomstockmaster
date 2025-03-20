@@ -1,7 +1,10 @@
 
+using Microsoft.OpenApi.Models;
+using MongoDB.Driver;
+
+// Add correct namespace references
 using InventoryApi.Models;
 using InventoryApi.Services;
-using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
